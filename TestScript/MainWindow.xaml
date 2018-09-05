@@ -1,0 +1,265 @@
+﻿<Window x:Class="TestScript.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestScript"
+        xmlns:ac="clr-namespace:Yuhan.WPF.Controls;assembly=Yuhan.WPF.AdornedControl"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="MainWindow" Height="608.668" Width="979.666" Background="White">
+    <Window.DataContext>
+        <local:DisplayOutput/>
+    </Window.DataContext>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Grid x:Name="mainApp">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition  Width="*" MinWidth="300" />
+                <!--<ColumnDefinition MinWidth="387.5" Width="*"/>-->
+                <!--<ColumnDefinition Width="54*" MinWidth="400"/>-->
+                <ColumnDefinition Width="400"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Margin="5,5,4.667,5" Grid.Column="1" Grid.Row="1">
+                <DockPanel Margin="5,5,4.667,5" Grid.Column="1" Grid.Row="1" LastChildFill="False">
+                    <Label Content="Serial port" Foreground="White" Background="Black" />
+                    <ComboBox x:Name="portbox" Width="120" MouseEnter="portbox_MouseEnter"/>
+                    <Button x:Name="Connect" Content="Connect" Foreground="#FF080517" Background="#FF54ABFC" Click="Button_Click" Padding="5"/>
+                </DockPanel>
+                <DockPanel Margin="5,5,4.667,5" Grid.Column="1" Grid.Row="1" LastChildFill="False" >
+                    <Label Content="Log name" Foreground="White" Background="Black" />
+                    <TextBox x:Name="filename" Width="124"/>
+                    <Button x:Name="savelog" Content="Save" Foreground="#FF080517" Click="savelog_clock" Padding="5" Width="53"/>
+                </DockPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="3" Grid.Row="1" Margin="0.333,0,-0.333,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label FontSize="14" Content="Select test device:   "/>
+                    <RadioButton x:Name="Core" Content="ACT LGA" Margin="5,10,5,0" FontWeight="Bold" GroupName="Core" IsChecked="True" Checked="Core_Checked" />
+                    <RadioButton x:Name="Core2" Content="C2+" Margin="5,10,5,0" FontWeight="Bold" GroupName="Core" Checked="Core2_Checked" />
+
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label FontSize="14" Content="Load configuration:"/>
+                    <Button x:Name="load_lga" Content="ACT LGA" Margin="5,0,10,0" Padding="5" Click="loadlga_click"/>
+                    <Button x:Name="load_c2" Content="C2+" RenderTransformOrigin="1.551,0.465" Padding="5" Click="loadc2_click"/>
+
+                </StackPanel>
+            </StackPanel>
+
+            <ScrollViewer x:Name="output" Grid.Column="3" Grid.Row="2" Background="#FF030303" Foreground="White" Content="{Binding value}" Margin="10.166,36,10.834,50" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" 
+ Height="362"/>
+            <TabControl Grid.Column="1" Grid.Row="2" MinHeight="388" Margin="10,10,9.667,50.333" >
+                <TabItem Header="ARM">
+                    <ScrollViewer Height="350">
+                        <StackPanel Grid.Column="1" Grid.Row="1" MinHeight="388" Margin="0,0,1,0" x:Name="s1">
+
+                            <Border BorderBrush="Black" BorderThickness="1" Height="1" Margin="0,0,-0.333,0"/>
+                            <DockPanel Margin="5" LastChildFill="True" Background="White">
+                                <TextBlock Text="FVT TESTS" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontWeight="Bold" FontStyle="Italic"/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="LPDDR"/>
+                                <Button x:Name="lpddr_dataline" Content="Dataline" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Button x:Name="lpddr_addrline" Content="Addrline" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="NAND"/>
+                                <Button x:Name="nand_partition" Content="Partition" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="nand_scan" Content="Scan" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="nand_probe" Content="Probe" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="USB"/>
+                                <Button x:Name="usb" Content="Autotest" DockPanel.Dock="Right" Width="90" Background="#FFC4E59C" Click="cmd_Click" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="I2C"/>
+                                <Button x:Name="i2c_02" Content="I2C0 to I2C2" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="i2c_12" Content="I2C1 to I2C2" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="SPI"/>
+                                <Button x:Name="spi" Content="SPI2_slave SPI1_master" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="GPIO"/>
+                                <Button x:Name="gpio_loopback" Content="Loopback" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" Width="101" />
+                                <Button x:Name="gpio_wz" Content="Walking zero" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="BBURAM"/>
+                                <Button x:Name="bburam_write" Content="Write" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="bburam_dv" Content="Data verify" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="OTP"/>
+                                <Button x:Name="otp_cal_write" Content="Cal wr" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="otp_cal_read" Content="Cal rd" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="otp_assm_read" Content="Assm rd" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="otp_assm_write" Content="Assm wr" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="otp_id_read" Content="Id rd" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="otp_id_write" Content="Id wr" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="UART"/>
+                                <Button x:Name="uart3lb" Content="3 Loopback" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="uart12" Content="1,2 Loopback" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="SDIO"/>
+                                <Button x:Name="sdio0" Content="Autotest 0" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Button x:Name="sdio1" Content="Autotest 1" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="ADC"/>
+                                <Button x:Name="adc5" Content="5" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="adc4" Content="4" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="adc3" Content="3" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="adc2" Content="2" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="adc1" Content="1" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="adc0" Content="0" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="Accelerometer"/>
+                                <Button x:Name="accel_getid" Content="Get id" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="accel_read" Content="Read raw" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="accel_check" Content="Check" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="IPM2"/>
+
+                                <Button x:Name="ipm_rf_enable" Content="Rf on" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_ldo_disable" Content="ldo off" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_ldo_enable" Content="ldo on" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_lcd_disable" Content="lcd off" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_lcd_enable" Content="lcd on" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="IPM2"/>
+
+                                <Button x:Name="ipm_battMeasure" Content="Measure" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_battDis" Content="BattDis" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_battEn" Content="BattEn" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="IPM2 "/>
+                                <Button x:Name="ipm_clear" Content="Clear" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_read" Content="Read" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_powerup" Content="PowerUp" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_powerdn" Content="PowerDn" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="IPM2Rmt"/>
+                                <Button x:Name="ipm_rdopen" Content="Rdopen" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_vrdDisable" Content="VrdDis" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_vrdEnable" Content="VrdEn" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_rdsRecharge" Content="Rechgarge" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="ipm_rdsClose" Content="RdsClose" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+
+                                <Label Content=""/>
+                            </DockPanel>
+
+
+                        </StackPanel>
+                    </ScrollViewer>
+
+                </TabItem>
+                <TabItem Header="RF">
+                    <StackPanel Grid.Column="1" Grid.Row="1" MinHeight="388" Margin="0,0,0.667,0.333" Width="{Binding ElementName=s1, Path=ActualWidth}">
+
+                        <Border BorderBrush="Black" BorderThickness="1" Height="1" Margin="0,0,-0.333,0"/>
+                        <DockPanel Margin="5" LastChildFill="True" Background="White">
+                            <TextBlock Text="FVT TESTS" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontWeight="Bold" FontStyle="Italic"/>
+                        </DockPanel>
+                        <DockPanel Margin="5" Background="#FFEBF2EA" >
+                            <Label Content="GPIO"/>
+                            <Button x:Name="rfgpio_loopback" Content="Loopback" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" Width="101" />
+                            <Button x:Name="rfgpio_wz" Content="Walking zero" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Label Content=""/>
+                        </DockPanel>
+                        <DockPanel Margin="5" Background="#FFEBF2EA" >
+                            <Label Content="ADC"/>
+                            <Button x:Name="rfadc5" Content="5" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="rfadc4" Content="4" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="rfadc3" Content="3" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="rfadc2" Content="2" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="rfadc1" Content="1" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="rfadc0" Content="0" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                            <Label Content=""/>
+                        </DockPanel>
+
+
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="PLC">
+                    <StackPanel Grid.Column="1" Grid.Row="1" MinHeight="388" Margin="0,0,-0.333,0.333" >
+
+                        <Border BorderBrush="Black" BorderThickness="1" Height="1" Margin="0,0,-0.333,0"/>
+                        <DockPanel Margin="5" LastChildFill="True" Background="White">
+                            <TextBlock Text="FVT TESTS" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontWeight="Bold" FontStyle="Italic"/>
+                        </DockPanel>
+                        <DockPanel Margin="5" Background="#FFEBF2EA" >
+                            <Label Content="GPIO"/>
+                            <Button x:Name="plcgpio_loopback" Content="Loopback" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" Width="101" />
+                            <Button x:Name="plcgpio_wz" Content="Walking zero" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Label Content=""/>
+                        </DockPanel>
+                        <!--<DockPanel Margin="5" Background="#FFEBF2EA" >
+                            <Label Content="ADC"/>
+                            <Button x:Name="plcadc5" Content="5" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="plcadc4" Content="4" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="plcadc3" Content="3" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="plcadc2" Content="2" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="plcadc1" Content="1" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                            <Button x:Name="plcadc0" Content="0" DockPanel.Dock="Right" MinWidth="30" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+
+                            <Label Content=""/>
+                        </DockPanel>-->
+
+
+                    </StackPanel>
+
+                </TabItem>
+            </TabControl>
+            <!-- Replace with your UserControl -->
+        </Grid>
+    </ScrollViewer>
+
+</Window>
