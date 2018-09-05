@@ -37,7 +37,7 @@ namespace TestScript
         DisplayOutput _output;
         string received = "";
         Dictionary<string, string> dict_lga,dict,dict_c2,passed;
-        string passphrase = "lol";
+        string passphrase = "lols";
         Button active;
         private SerialPort port;
         StreamWriter writer;
