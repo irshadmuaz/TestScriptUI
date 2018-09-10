@@ -21,4 +21,10 @@ C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\Adorners.dll
 C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\Yuhan.Common.dll
 C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\Yuhan.WPF.AdornedControl.dll
 C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\Yuhan.WPF.dll
+C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\System.Windows.Forms.Ribbon35.dll
+C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\ToastNotifications.dll
+C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\ToastNotifications.Messages.dll
+C:\Users\mahmad\source\repos\TestScript\TestScript\obj\Debug\App.baml
 C:\Users\mahmad\source\repos\TestScript\TestScript\obj\Debug\TestScript.csprojAssemblyReference.cache
+C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\CsvReader.dll
+C:\Users\mahmad\source\repos\TestScript\TestScript\bin\Debug\CsvReader.xml

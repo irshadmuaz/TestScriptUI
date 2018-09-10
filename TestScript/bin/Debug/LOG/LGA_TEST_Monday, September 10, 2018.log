@@ -1,8 +1,10 @@
 q
+Quit i2c2 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -67,6 +69,8 @@ randl  : random u32 r/w test for mem Length
 randa  : random u32 r/w test in address range
 march_c  : march_C u32 test in address range
 march_cf  : march_C u32 full free memory test
+move_dma  : move dma full free lpddr memory test
+move_memcpy   : move memcpy full lpddr memory test
 fvt_dataline  : fvt sram data_line test
 fvt_addrline  : fvt sram address_line test
 exceptionTst  : trigger exception
@@ -77,11 +81,11 @@ SRAM_ADDRLINE_PROBE_TEST_RESULT, 1
 
 cmd:> q
 Quit lpddr test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -146,6 +150,8 @@ randl  : random u32 r/w test for mem Length
 randa  : random u32 r/w test in address range
 march_c  : march_C u32 test in address range
 march_cf  : march_C u32 full free memory test
+move_dma  : move dma full free lpddr memory test
+move_memcpy   : move memcpy full lpddr memory test
 fvt_dataline  : fvt sram data_line test
 fvt_addrline  : fvt sram address_line test
 exceptionTst  : trigger exception
@@ -156,11 +162,11 @@ SRAM_DATALINE_PROBE_TEST_RESULT, 1
 
 cmd:> q
 Quit lpddr test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -230,6 +236,7 @@ nand_erase_all    : nand erase all blocks test
 nand_scan_bbt     : scan bbt
 nand_scan_bbt_range	  : scan bbt in block range
 nand_check_partitions	  : check whole chip for allowed bb# in each partition
+nand_mark_bb_in_oob       : mark bad block in oob
 nand_mark_bb      : mark bad block
 nand_check_bb	  : check block's status
 nand_write_bbt    : write bbt to flash
@@ -237,16 +244,15 @@ nand_read_bbt     : read bbt from flash
 q                 : quit nand test
 
 cmd:> nand_probe 0 MT29F4G16ABBDA3W
-overflow: tick_high 7 nowl 453417139
 nand_probe,1
 
 cmd:> q
 Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -316,6 +322,7 @@ nand_erase_all    : nand erase all blocks test
 nand_scan_bbt     : scan bbt
 nand_scan_bbt_range	  : scan bbt in block range
 nand_check_partitions	  : check whole chip for allowed bb# in each partition
+nand_mark_bb_in_oob       : mark bad block in oob
 nand_mark_bb      : mark bad block
 nand_check_bb	  : check block's status
 nand_write_bbt    : write bbt to flash
@@ -327,11 +334,11 @@ cmd:> nand_scan_bbt 0 MT29F4G16ABBDA3W
 
 cmd:> q
 Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -401,6 +408,7 @@ nand_erase_all    : nand erase all blocks test
 nand_scan_bbt     : scan bbt
 nand_scan_bbt_range	  : scan bbt in block range
 nand_check_partitions	  : check whole chip for allowed bb# in each partition
+nand_mark_bb_in_oob       : mark bad block in oob
 nand_mark_bb      : mark bad block
 nand_check_bb	  : check block's status
 nand_write_bbt    : write bbt to flash
@@ -412,251 +420,11 @@ nand_check_partitions,1
 
 cmd:> q
 Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : FVT_USB
-device: FVT_USB test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-USB_AUTO_TEST  : FVT USB AUTO Test
-
-cmd:> Uq
-Bad command!
-
-cmd:> nandflash
-Bad command!
-
-cmd:> nand_scan_bbt 0 MT29F4G16ABBDA3W
-Bad command!
-
-cmd:> q
-Quit FVT_USB test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : nandflash
-device: nandflash test case
-
-Available commands
-------------------
-help              : Display list of commands
-h                 : alias for help
-?                 : alias for help
-nand_mem_mode_set : mem mode select
-nand_onfi_dump    : param page dump
-nand_read_status  : execute ReadStatus or ReadEnhStatus op [1/2]
-set_timing_md_feat: set timing mode feature [0..5]
-nand_probe        : nand probe test
-nand_erase        : nand erase block test
-nand_erase_or_mark: nand erase or mark as bb block
-nand_write        : nand write/read test
-nand_1wmr         : nand write 1 and read more test
-nand_read         : nand read test
-nand_ecc          : nand ecc support test
-nand_int          : nand interrupt test
-nand_erase_all_or_mark    : nand erase all or mark as bb block(s)
-nand_erase_all    : nand erase all blocks test
-nand_scan_bbt     : scan bbt
-nand_scan_bbt_range	  : scan bbt in block range
-nand_check_partitions	  : check whole chip for allowed bb# in each partition
-nand_mark_bb      : mark bad block
-nand_check_bb	  : check block's status
-nand_write_bbt    : write bbt to flash
-nand_read_bbt     : read bbt from flash
-q                 : quit nand test
-
-cmd:> nand_scan_bbt 0 MT29F4G16ABBDA3W
- ffb,BBTotal: 1,nand_scan_bbt,1
-
-cmd:> q
-Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : nandflash
-device: nandflash test case
-
-Available commands
-------------------
-help              : Display list of commands
-h                 : alias for help
-?                 : alias for help
-nand_mem_mode_set : mem mode select
-nand_onfi_dump    : param page dump
-nand_read_status  : execute ReadStatus or ReadEnhStatus op [1/2]
-set_timing_md_feat: set timing mode feature [0..5]
-nand_probe        : nand probe test
-nand_erase        : nand erase block test
-nand_erase_or_mark: nand erase or mark as bb block
-nand_write        : nand write/read test
-nand_1wmr         : nand write 1 and read more test
-nand_read         : nand read test
-nand_ecc          : nand ecc support test
-nand_int          : nand interrupt test
-nand_erase_all_or_mark    : nand erase all or mark as bb block(s)
-nand_erase_all    : nand erase all blocks test
-nand_scan_bbt     : scan bbt
-nand_scan_bbt_range	  : scan bbt in block range
-nand_check_partitions	  : check whole chip for allowed bb# in each partition
-nand_mark_bb      : mark bad block
-nand_check_bb	  : check block's status
-nand_write_bbt    : write bbt to flash
-nand_read_bbt     : read bbt from flash
-q                 : quit nand test
-
-cmd:> nand_check_partitions 0 MT29F4G16ABBDA3W
-nand_check_partitions,1
-
-cmd:> q
-Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 208, calloc: 8, realloc: 0, free: 208, mem_leak: 32000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -718,11 +486,11 @@ musb_start: devctl 99 power: 70
 USB_AUTO_TEST_RESULT=1,USB0_RESULT=1,USB1_RESULT=1
 cmd:> q
 Quit FVT_USB test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -790,12 +558,11 @@ I2C_SET_SLAVE_RESULT,1
 
 cmd:> q
 Quit i2c1 test
-warning:ch 0 still active, force stop it
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -863,11 +630,11 @@ I2C_MASTER_TEST_RESULT,1
 
 cmd:> q
 Quit i2c2 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -935,11 +702,11 @@ I2C_SET_SLAVE_RESULT,1
 
 cmd:> q
 Quit i2c0 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1003,15 +770,15 @@ i2c_send  : i2c LCD debug test
 i2c_lcd  : i2c LCD test
 
 cmd:> i2c_master 0 100000 0x45 7b 1024 0xa1
-I2C_MASTER_TEST_RESULT,0
+I2C_MASTER_TEST_RESULT,1
 
 cmd:> q
 Quit i2c2 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1080,11 +847,11 @@ SPI_SET_SLAVE_RESULT,1
 
 cmd:> q
 Quit spi2 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1153,123 +920,11 @@ SPI_MASTER_TEST_RESULT,1
 
 cmd:> q
 Quit spi1 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : gpio
-device: gpio test case
-
-Available commands
-------------------
-help           : Display list of commands
-h              : alias for help
-?              : alias for help
-gpio_output    : gpio output test
-gpio_input     : gpio input test
-gpio_int_type  : gpio interrupt type test
-gpio_debounce  : gpio debounce test
-gpio_output_pu : gpio output push pull, open drain test
-gpio_input_pu  : gpio input push pull test
-gpio_loopback  : gpio_loopback_test
-gpio_zero_walk : gpio_walking_zeros_test
-
-cmd:> gpio_zero_walk
-ERROR: PORTA, PIN2
-ERROR: PORTA, PIN3
-ERROR: PORTA, PIN5
-ERROR: PORTA, PIN6
-ERROR: PORTA, PIN7
-ERROR: PORTA, PIN8
-ERROR: PORTA, PIN10
-ERROR: PORTA, PIN11
-ERROR: PORTA, PIN14
-ERROR: PORTA, PIN15
-ERROR: PORTA, PIN16
-ERROR: PORTA, PIN17
-ERROR: PORTA, PIN18
-ERROR: PORTA, PIN19
-ERROR: PORTB, PIN2
-ERROR: PORTB, PIN9
-ERROR: PORTB, PIN14
-ERROR: PORTB, PIN17
-ERROR: PORTB, PIN18
-ERROR: PORTB, PIN19
-ERROR: PORTB, PIN20
-ERROR: PORTB, PIN21
-ERROR: PORTB, PIN22
-ERROR: PORTB, PIN23
-ERROR: PORTB, PIN24
-ERROR: PORTB, PIN25
-ERROR: PORTB, PIN26
-ERROR: PORTB, PIN27
-ERROR: PORTB, PIN28
-ERROR: PORTB, PIN29
-ERROR: PORTB, PIN30
-ERROR: PORTB, PIN31
-ERROR: PORTC, PIN6
-ERROR: PORTC, PIN7
-ERROR: PORTC, PIN8
-ERROR: PORTC, PIN9
-ERROR: PORTC, PIN16
-ERROR: PORTC, PIN17
-ERROR: PORTC, PIN26
-ERROR: PORTC, PIN29
-ERROR: PORTD, PIN2
-ERROR: PORTD, PIN3
-gpio_zero_walk,0
-cmd:> q
-Quit gpio test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1332,16 +987,86 @@ gpio_loopback  : gpio_loopback_test
 gpio_zero_walk : gpio_walking_zeros_test
 
 cmd:> gpio_loopback
-GPIOA_04_TO_GPIOA_09,0
-gpio_loopback,0
+gpio_loopback,1
 
 cmd:> q
 Quit gpio test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : bburam
+device: bburam test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+bram_write_buf   : BBU RAM write string test
+bram_read_buf   : BBU RAM read string test
+bram_data_comp   : BBU RAM data compare test
+bram_wr_var_bytes   : BBU RAM - Write variable data
+bram_data_verify   : BBU RAM - Verify
+bram_writew   : BBU RAM 16 bit write test
+bram_readw   : BBU RAM 16 bit read/verify test
+
+cmd:> bram_writew 0xaa55
+BBU RAM 16 bit write test.
+bram_writew PASS
+
+cmd:> q
+Quit bburam test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1410,82 +1135,11 @@ bram_data_verify, 1
 
 cmd:> q
 Quit bburam test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : bburam
-device: bburam test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-bram_write_buf   : BBU RAM write string test
-bram_read_buf   : BBU RAM read string test
-bram_data_comp   : BBU RAM data compare test
-bram_wr_var_bytes   : BBU RAM - Write variable data
-bram_data_verify   : BBU RAM - Verify
-bram_writew   : BBU RAM 16 bit write test
-bram_readw   : BBU RAM 16 bit read/verify test
-
-cmd:> bram_writew 0xaa55
-BBU RAM 16 bit write test.
-bram_writew PASS
-
-cmd:> q
-Quit bburam test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1561,20 +1215,432 @@ lga_assm_write  : LGA assembly number write test
 reg_assm_read  : Register assembly number read test
 reg_assm_write  : Register assembly number write test
 
-cmd:> brd_id_write 0x00 0x11 0x22 0x33 0x44 0x55 0x66 0x77
-read: row 0xa8 val=0x77
-read: row 0xb0 val=0x77
-read: row 0xb8 val=0x77
-ERROR: Unable to find valid BRD_ID slot
-brd_id_write,0
+cmd:> rtc_cal_write 33
+Usage: rtc_cal_write <rtc trim value> <trim mode>
+rtc_cal_write,0
 
 cmd:> q
 Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> rtc_cal_read
+Usage: rtc_cal_read <trim mode>
+rtc_cal_read,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> lga_assm_read
+read: row 0xcb val=0x05
+read: row 0xcc val=0x85
+read: row 0xcd val=0xc6
+read: row 0xce val=0x08
+read: row 0xcf val=0x00
+read: row 0xd0 val=0x00
+lga_assm_read,1,0x000008C685-05,575109-5
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_cal_write -43
+Bad command!
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_cal_read
+Bad command!
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> lga_assm_write 0 0 0x8 0xC6 0x85 5
+read: row 0xc5 val=0x05
+read: row 0xcb val=0x05
+ERROR: Unable to find valid ASSM_NUM slot
+lga_assm_write,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1663,11 +1729,11 @@ brd_id_read,1,0x0011223344556677,4822678189205111
 
 cmd:> q
 Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1743,19 +1809,1700 @@ lga_assm_write  : LGA assembly number write test
 reg_assm_read  : Register assembly number read test
 reg_assm_write  : Register assembly number write test
 
-cmd:> lga_assm_write 0 0 0x8 0xC6 0x85 5
-read: row 0xc5 val=0x05
-read: row 0xcb val=0x05
-ERROR: Unable to find valid ASSM_NUM slot
-lga_assm_write,0
+cmd:> brd_id_write 0x00 0x11 0x22 0x33 0x44 0x55 0x66 0x77
+read: row 0xa8 val=0x1a
+read: row 0xb0 val=0x77
+read: row 0xb8 val=0x77
+ERROR: Unable to find valid BRD_ID slot
+brd_id_write,0
 
 cmd:> q
 Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : uart1
+device: uart1 test case
+
+Available commands
+------------------
+help : Display list of commands
+h: alias for help
+?: alias for help
+uart_loopback: uart loopback tx/rx test
+uart_external_loopback: uart external loopback tx/rx test
+uart_modem_loopback: uart loopback modem ctrl test
+uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
+uart_flowctrl: uart rs232 tx/rx with flowctrl test
+uart_echo: uart echo server in background
+uart_modem  : uart modem ctrl detect test
+uart_modem_master: uart modem ctrl control test
+uart_line  : uart line break detect test in background
+uart_line_master:uart line break generate test
+uart_int  : uart interrupt test
+uart_dma_block_echo  : uart dma multiblock with interrupt test
+uart_dma_block  : uart dma multiblock with interrupt test
+uart_reset  : uart sw reset test
+uart_cfg: uart port configure
+uart_send  : debug send
+uart_recv  : debug receive
+uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
+console_switch  : switch current console to other uart port
+uart_reg_dump  : dump reg
+4_uart_show : four uart puts char out
+q : quit uart test
+
+cmd:> uart_echo 0 115200 n 8 1 0
+uart_echo: uart echo server
+uart echo server run in background
+uart_echo,1
+
+cmd:> q
+Quit uart1 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : uart2
+device: uart2 test case
+
+Available commands
+------------------
+help : Display list of commands
+h: alias for help
+?: alias for help
+uart_loopback: uart loopback tx/rx test
+uart_external_loopback: uart external loopback tx/rx test
+uart_modem_loopback: uart loopback modem ctrl test
+uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
+uart_flowctrl: uart rs232 tx/rx with flowctrl test
+uart_echo: uart echo server in background
+uart_modem  : uart modem ctrl detect test
+uart_modem_master: uart modem ctrl control test
+uart_line  : uart line break detect test in background
+uart_line_master:uart line break generate test
+uart_int  : uart interrupt test
+uart_dma_block_echo  : uart dma multiblock with interrupt test
+uart_dma_block  : uart dma multiblock with interrupt test
+uart_reset  : uart sw reset test
+uart_cfg: uart port configure
+uart_send  : debug send
+uart_recv  : debug receive
+uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
+console_switch  : switch current console to other uart port
+uart_reg_dump  : dump reg
+4_uart_show : four uart puts char out
+q : quit uart test
+
+cmd:> uart_external_loopback 0 115200 n 8 1 0 100 0xa5
+UART_EX_LOOPBACK_RESULT,1
+
+cmd:> q
+Quit uart2 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : uart3
+device: uart3 test case
+
+Available commands
+------------------
+help : Display list of commands
+h: alias for help
+?: alias for help
+uart_loopback: uart loopback tx/rx test
+uart_external_loopback: uart external loopback tx/rx test
+uart_modem_loopback: uart loopback modem ctrl test
+uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
+uart_flowctrl: uart rs232 tx/rx with flowctrl test
+uart_echo: uart echo server in background
+uart_modem  : uart modem ctrl detect test
+uart_modem_master: uart modem ctrl control test
+uart_line  : uart line break detect test in background
+uart_line_master:uart line break generate test
+uart_int  : uart interrupt test
+uart_dma_block_echo  : uart dma multiblock with interrupt test
+uart_dma_block  : uart dma multiblock with interrupt test
+uart_reset  : uart sw reset test
+uart_cfg: uart port configure
+uart_send  : debug send
+uart_recv  : debug receive
+uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
+console_switch  : switch current console to other uart port
+uart_reg_dump  : dump reg
+4_uart_show : four uart puts char out
+q : quit uart test
+
+cmd:> uart_external_loopback 0 115200 n 8 1 0 100 0xa5
+UART_EX_LOOPBACK_RESULT,1
+
+cmd:> q
+Quit uart3 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : mmc/sdio 1
+device: mmc/sdio 1 test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+mmc_probe   : mmc probe card test
+mmc_single   :mmc single block write read test
+mmc_multi : mmc multi-block write read test
+mmc_multi_robust : mmc multi-block robust write read test
+mmc_read : mmc read and show block
+SDIO_AUTO_TEST : FVT Test
+mmc_int : mmc interrupt handle test
+
+cmd:> SDIO_AUTO_TEST
+
+SDIO_AUTO_TEST,1
+
+cmd:> q
+Quit mmc/sdio 1 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : mmc/sdio 0
+device: mmc/sdio 0 test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+mmc_probe   : mmc probe card test
+mmc_single   :mmc single block write read test
+mmc_multi : mmc multi-block write read test
+mmc_multi_robust : mmc multi-block robust write read test
+mmc_read : mmc read and show block
+SDIO_AUTO_TEST : FVT Test
+mmc_int : mmc interrupt handle test
+
+cmd:> SDIO_AUTO_TEST
+
+SDIO_AUTO_TEST,1
+
+cmd:> q
+Quit mmc/sdio 0 test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : tamper
+device: tamper test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+tamp_int   : tamp interrupt test
+tamp_read   : tamp read test
+tamp_count_clear   : clear event count
+tamper_setup   : tamper interrupt test
+tamper_cnt   : tamper count test
+tamper_rd   : Read tamper registers
+
+cmd:> tamper_rd
+tamp time 2000.00.00 00:00:00
+tamp time 2000.00.00 00:00:00
+tamp time 2000.00.00 00:00:00
+tamper_rd,1,0
+
+cmd:> q
+Quit tamper test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : tamper
+device: tamper test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+tamp_int   : tamp interrupt test
+tamp_read   : tamp read test
+tamp_count_clear   : clear event count
+tamper_setup   : tamper interrupt test
+tamper_cnt   : tamper count test
+tamper_rd   : Read tamper registers
+
+cmd:> tamper_setup 2 3
+tamper_setup,1
+
+cmd:> q
+Quit tamper test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : tamper
+device: tamper test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+tamp_int   : tamp interrupt test
+tamp_read   : tamp read test
+tamp_count_clear   : clear event count
+tamper_setup   : tamper interrupt test
+tamper_cnt   : tamper count test
+tamper_rd   : Read tamper registers
+
+cmd:> tamper_rd
+tamp time 2000.00.00 00:00:00
+tamp time 2000.00.00 00:00:00
+tamp time 2000.00.00 00:00:00
+tamper_rd,1,0
+
+cmd:> q
+Quit tamper test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_set_time 2018 03 13 13 17 20
+rtc_set_time
+2018/3/13  13:17:20:0
+mktime: seconds = 1520947040
+rtc_get_time,1,2018,03,13,13,17,20,00,2
+rtc_set_time,1
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_get_time 12h
+rtc_get_time
+rtc_get_time,1,2018,03,13,13,17,21,75,2
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_get_time 24h
+rtc_get_time
+rtc_get_time,1,2018,03,13,13,17,23,41,2
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_calibrate_para_show
+rtc_calibration_para_show,1,0xfffffff6,-10
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_set_trim 3276657
+rtc_set_trim
+trim_val:-8580, -4290, -2145, -858
+mod:80, 90, 45, 58
+min:45, max:90
+trim_mod:1, cur_trim_val:-43
+rtc_set_trim,1,1,-43
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> fvt_rtc_calibrate -10
+fvt_rtc_calibrate
+
+trim_mode:30 seconds, vld_mode:1, trim_val:-10
+fvt_rtc_calibrate: test pass
+fvt_rtc_calibrate,1
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_cal_write -43
+Bad command!
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 312, calloc: 12, realloc: 0, free: 312, mem_leak: 48000
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_cal_read
+Bad command!
+
+cmd:>  ????????????????????????????????????ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018 09:46:56
+ARM CDL VSep  7 2018 09:46:56...with hskp_0 in initial(EVB)
+
+
+Clock regs: arm_pll/arm_clk/ddr_pll 80001643/61d25c5/80001c89
+PLL rate: ARM 600000000 from root_xtal_36mhz, DDR 400000000
+arm_clk_rate: 600000000 from arm_pll
+axi_clk_rate: 300000000
+ahb_clk_rate: 150000000
+apb0_clk_rate: 150000000
+apb1_clk_rate: 75000000
+rom_clk_rate: 150000000
+sdmmc_clk_rate: 100000000
+nfc_clk_rate: 200000000
+uart_clk_rate: 58895680
+wdt actual frequency: 37500000, pclk 75000000 divh 2 divl 1
+misc_var_init
+prcm_var_init
+ARM_UART_I2C_DS_REG:0xf
+ARM_UART_I2C_DS_REG:0xff
+ARM_UART_I2C_DS_REG:0xfff
+ARM_UART_I2C_DS_REG:0xfffff
+ARM_UART_I2C_DS_REG:0x3fffff
+ARM_UART_I2C_DS_REG:0xffffff
+ARM_UART_I2C_DS_REG:0x3ffffff
+using memory 0x44185300-0x47985300 for malloc()
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : q
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : gpio
+device: gpio test case
+
+Available commands
+------------------
+help           : Display list of commands
+h              : alias for help
+?              : alias for help
+gpio_output    : gpio output test
+gpio_input     : gpio input test
+gpio_int_type  : gpio interrupt type test
+gpio_debounce  : gpio debounce test
+gpio_output_pu : gpio output push pull, open drain test
+gpio_input_pu  : gpio input push pull test
+gpio_loopback  : gpio_loopback_test
+gpio_zero_walk : gpio_walking_zeros_test
+
+cmd:> gpio_zero_walk
+gpio_zero_walk,1
+cmd:> q
+Quit gpio test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : gpio
+device: gpio test case
+
+Available commands
+------------------
+help           : Display list of commands
+h              : alias for help
+?              : alias for help
+gpio_output    : gpio output test
+gpio_input     : gpio input test
+gpio_int_type  : gpio interrupt type test
+gpio_debounce  : gpio debounce test
+gpio_output_pu : gpio output push pull, open drain test
+gpio_input_pu  : gpio input push pull test
+gpio_loopback  : gpio_loopback_test
+gpio_zero_walk : gpio_walking_zeros_test
+
+cmd:> gpio_zero_walk
+gpio_zero_walk,1
+cmd:> q
+Quit gpio test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : gpio
+device: gpio test case
+
+Available commands
+------------------
+help           : Display list of commands
+h              : alias for help
+?              : alias for help
+gpio_output    : gpio output test
+gpio_input     : gpio input test
+gpio_int_type  : gpio interrupt type test
+gpio_debounce  : gpio debounce test
+gpio_output_pu : gpio output push pull, open drain test
+gpio_input_pu  : gpio input push pull test
+gpio_loopback  : gpio_loopback_test
+gpio_zero_walk : gpio_walking_zeros_test
+
+cmd:> gpio_zero_walk
+gpio_zero_walk,1
+cmd:> q
+Quit gpio test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> rtc_cal_write 33
+Usage: rtc_cal_write <rtc trim value> <trim mode>
+rtc_cal_write,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> rtc_cal_read
+Usage: rtc_cal_read <trim mode>
+rtc_cal_read,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1842,11 +3589,11 @@ lga_assm_read,1,0x000008C685-05,575109-5
 
 cmd:> q
 Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
 
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
 Columbus FVT test,please select device first
 0: timer  
 1: watch dog timer  
@@ -1921,1499 +3668,257 @@ lga_assm_read  : LGA assembly number read test
 lga_assm_write  : LGA assembly number write test
 reg_assm_read  : Register assembly number read test
 reg_assm_write  : Register assembly number write test
+
+cmd:> lga_assm_write 0 0 0x8 0xC6 0x85 5
+read: row 0xc5 val=0x05
+read: row 0xcb val=0x05
+ERROR: Unable to find valid ASSM_NUM slot
+lga_assm_write,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : otp
+device: otp test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+otp_non_secure_show: dump all non secure data
+otp_non_secure_show_robust: otp_non_secure_show_robust
+otp_config_show: dump non secure first 4 byte config
+otp_secure_show: dump all secure data
+otp_set_onebit: otp set one bit
+otp_get_onebit: otp get one bit
+otp_set_onebyte: otp set one byte
+otp_get_onebyte: otp get one byte
+otp_test  : otp test program
+otp_key_disable  : otp key disable test
+otp_low_power_test  : otp_low_power_test
+otp_int  : otp interrupt test
+hw_id_read  : HWID read test
+hw_id_write  : HWID write test
+brd_id_read  : BOARDID read test
+brd_id_write  : BOARDID write test
+rtc_cal_read  : RTC_CAL read test
+rtc_cal_write  : RTC_CAL write test
+lga_assm_read  : LGA assembly number read test
+lga_assm_write  : LGA assembly number write test
+reg_assm_read  : Register assembly number read test
+reg_assm_write  : Register assembly number write test
+
+cmd:> brd_id_write 0x00 0x11 0x22 0x33 0x44 0x55 0x66 0x77
+read: row 0xa8 val=0x1a
+read: row 0xb0 val=0x77
+read: row 0xb8 val=0x77
+ERROR: Unable to find valid BRD_ID slot
+brd_id_write,0
+
+cmd:> q
+Quit otp test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
+
+cmd:> rtc_cal_write -43
+Bad command!
+
+cmd:> q
+Quit rtc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : rtc
+device: rtc test case
+
+Available commands
+------------------
+help                : Display list of commands
+h                   : alias for help
+?                   : alias for help
+rtc_set_time        : rtc_set_time
+rtc_get_time        : rtc_get_time
+rtc_get_time_robust : rtc_get_time robust test
+itron_rtc_robust : Itron RTC robust test
+rtc_alarm           : test_alarm
+rtc_alarm_multi_mode : test_alarm with multi mode
+rtc_int             : alarm interrupt test for arm
+rtc_int_for_dsp     : alarm interrupt generate for dsp
+rtc_calibrate       : rtc calibrate
+rtc_calibrate_para_show		: show rtc calibrate mode and value
+rtc_set_trim       : rtc set trim
+fvt_rtc_calibrate       : fvt_rtc_calibrate
 
 cmd:> rtc_cal_read
-read: row 0xc3 val=0x21
-rtc_cal_read,1,33
+Bad command!
 
-cmd:> q
-Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
+cmd:>  ????????????????????????????????????ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018 09:46:56
+ARM CDL VSep  7 2018 09:46:56...with hskp_0 in initial(EVB)
 
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : otp
-device: otp test case
 
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-otp_non_secure_show: dump all non secure data
-otp_non_secure_show_robust: otp_non_secure_show_robust
-otp_config_show: dump non secure first 4 byte config
-otp_secure_show: dump all secure data
-otp_set_onebit: otp set one bit
-otp_get_onebit: otp get one bit
-otp_set_onebyte: otp set one byte
-otp_get_onebyte: otp get one byte
-otp_test  : otp test program
-otp_key_disable  : otp key disable test
-otp_low_power_test  : otp_low_power_test
-otp_int  : otp interrupt test
-hw_id_read  : HWID read test
-hw_id_write  : HWID write test
-brd_id_read  : BOARDID read test
-brd_id_write  : BOARDID write test
-rtc_cal_read  : RTC_CAL read test
-rtc_cal_write  : RTC_CAL write test
-lga_assm_read  : LGA assembly number read test
-lga_assm_write  : LGA assembly number write test
-reg_assm_read  : Register assembly number read test
-reg_assm_write  : Register assembly number write test
-
-cmd:> rtc_cal_write 33
-read: row 0xc4 val=0x0f
-ERROR: Unable to find valid RTC_CAL slot
-rtc_cal_write,0
-
-cmd:> q
-Quit otp test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : uart1
-device: uart1 test case
-
-Available commands
-------------------
-help : Display list of commands
-h: alias for help
-?: alias for help
-uart_loopback: uart loopback tx/rx test
-uart_external_loopback: uart external loopback tx/rx test
-uart_modem_loopback: uart loopback modem ctrl test
-uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
-uart_flowctrl: uart rs232 tx/rx with flowctrl test
-uart_echo: uart echo server in background
-uart_modem  : uart modem ctrl detect test
-uart_modem_master: uart modem ctrl control test
-uart_line  : uart line break detect test in background
-uart_line_master:uart line break generate test
-uart_int  : uart interrupt test
-uart_dma_block_echo  : uart dma multiblock with interrupt test
-uart_dma_block  : uart dma multiblock with interrupt test
-uart_reset  : uart sw reset test
-uart_cfg: uart port configure
-uart_send  : debug send
-uart_recv  : debug receive
-uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
-console_switch  : switch current console to other uart port
-uart_reg_dump  : dump reg
-4_uart_show : four uart puts char out
-q : quit uart test
-
-cmd:> uart_echo 0 115200 n 8 1 0
-uart_echo: uart echo server
-uart echo server run in background
-uart_echo,1
-
-cmd:> q
-Quit uart1 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : uart2
-device: uart2 test case
-
-Available commands
-------------------
-help : Display list of commands
-h: alias for help
-?: alias for help
-uart_loopback: uart loopback tx/rx test
-uart_external_loopback: uart external loopback tx/rx test
-uart_modem_loopback: uart loopback modem ctrl test
-uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
-uart_flowctrl: uart rs232 tx/rx with flowctrl test
-uart_echo: uart echo server in background
-uart_modem  : uart modem ctrl detect test
-uart_modem_master: uart modem ctrl control test
-uart_line  : uart line break detect test in background
-uart_line_master:uart line break generate test
-uart_int  : uart interrupt test
-uart_dma_block_echo  : uart dma multiblock with interrupt test
-uart_dma_block  : uart dma multiblock with interrupt test
-uart_reset  : uart sw reset test
-uart_cfg: uart port configure
-uart_send  : debug send
-uart_recv  : debug receive
-uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
-console_switch  : switch current console to other uart port
-uart_reg_dump  : dump reg
-4_uart_show : four uart puts char out
-q : quit uart test
-
-cmd:> uart_external_loopback 0 115200 n 8 1 0 100 0xa5
-UART_EX_LOOPBACK_RESULT,0
-
-cmd:> q
-Quit uart2 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : uart3
-device: uart3 test case
-
-Available commands
-------------------
-help : Display list of commands
-h: alias for help
-?: alias for help
-uart_loopback: uart loopback tx/rx test
-uart_external_loopback: uart external loopback tx/rx test
-uart_modem_loopback: uart loopback modem ctrl test
-uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
-uart_flowctrl: uart rs232 tx/rx with flowctrl test
-uart_echo: uart echo server in background
-uart_modem  : uart modem ctrl detect test
-uart_modem_master: uart modem ctrl control test
-uart_line  : uart line break detect test in background
-uart_line_master:uart line break generate test
-uart_int  : uart interrupt test
-uart_dma_block_echo  : uart dma multiblock with interrupt test
-uart_dma_block  : uart dma multiblock with interrupt test
-uart_reset  : uart sw reset test
-uart_cfg: uart port configure
-uart_send  : debug send
-uart_recv  : debug receive
-uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
-console_switch  : switch current console to other uart port
-uart_reg_dump  : dump reg
-4_uart_show : four uart puts char out
-q : quit uart test
-
-cmd:> uart_external_loopback 0 115200 n 8 1 0 100 0xa5
-UART_EX_LOOPBACK_RESULT,0
-
-cmd:> q
-Quit uart3 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : mmc/sdio 1
-device: mmc/sdio 1 test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-mmc_probe   : mmc probe card test
-mmc_single   :mmc single block write read test
-mmc_multi : mmc multi-block write read test
-mmc_multi_robust : mmc multi-block robust write read test
-mmc_read : mmc read and show block
-SDIO_AUTO_TEST : FVT Test
-mmc_int : mmc interrupt handle test
-
-cmd:> SDIO_AUTO_TEST
-
-SDIO_AUTO_TEST,1
-
-cmd:> q
-Quit mmc/sdio 1 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : mmc/sdio 0
-device: mmc/sdio 0 test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-mmc_probe   : mmc probe card test
-mmc_single   :mmc single block write read test
-mmc_multi : mmc multi-block write read test
-mmc_multi_robust : mmc multi-block robust write read test
-mmc_read : mmc read and show block
-SDIO_AUTO_TEST : FVT Test
-mmc_int : mmc interrupt handle test
-
-cmd:> SDIO_AUTO_TEST
-
-SDIO_AUTO_TEST,1
-
-cmd:> q
-Quit mmc/sdio 0 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 0
-MIN  CUR  MAX
-3694 0000 4072
-3694 0000 4072
-3694 0000 4072
-3694 0000 4072
-arm_adc_autotest,0,0
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 1
-MIN  CUR  MAX
-2659 0000 2932
-2659 0000 2932
-2659 0000 2932
-2659 0000 2932
-arm_adc_autotest,0,1
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 2
-MIN  CUR  MAX
-1625 0000 1791
-1625 0000 1791
-1625 0000 1791
-1625 0000 1791
-arm_adc_autotest,0,2
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 3
-MIN  CUR  MAX
-3694 0000 4072
-2659 0000 2932
-1625 0000 1791
-arm_adc_autotest,0,3
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 4
-MIN  CUR  MAX
-1625 0000 1791
-3694 0000 4072
-2659 0000 2932
-arm_adc_autotest,0,4
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : adc
-device: adc test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-adc_sm  : adc single mode multi-channel test
-adc_cm  : adc continuous mode mult-chanel test
-adc_int  : adc interrupt test
-arm_adc_autotest: adc FVT test
-
-cmd:> arm_adc_autotest 5
-MIN  CUR  MAX
-2659 0000 2932
-1625 0000 1791
-3694 0000 4072
-arm_adc_autotest,0,5
-
-cmd:> q
-Quit adc test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : q
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : bburam
-device: bburam test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-bram_write_buf   : BBU RAM write string test
-bram_read_buf   : BBU RAM read string test
-bram_data_comp   : BBU RAM data compare test
-bram_wr_var_bytes   : BBU RAM - Write variable data
-bram_data_verify   : BBU RAM - Verify
-bram_writew   : BBU RAM 16 bit write test
-bram_readw   : BBU RAM 16 bit read/verify test
-
-cmd:> bram_writew 0xaa55
-BBU RAM 16 bit write test.
-bram_writew PASS
-
-cmd:> q
-Quit bburam test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : bburam
-device: bburam test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-bram_write_buf   : BBU RAM write string test
-bram_read_buf   : BBU RAM read string test
-bram_data_comp   : BBU RAM data compare test
-bram_wr_var_bytes   : BBU RAM - Write variable data
-bram_data_verify   : BBU RAM - Verify
-bram_writew   : BBU RAM 16 bit write test
-bram_readw   : BBU RAM 16 bit read/verify test
-
-cmd:> bram_writew 0xaa55
-BBU RAM 16 bit write test.
-bram_writew PASS
-
-cmd:> q
-Quit bburam test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : bburam
-device: bburam test case
-
-Available commands
-------------------
-help : Display list of commands
-h    : alias for help
-?    : alias for help
-bram_write_buf   : BBU RAM write string test
-bram_read_buf   : BBU RAM read string test
-bram_data_comp   : BBU RAM data compare test
-bram_wr_var_bytes   : BBU RAM - Write variable data
-bram_data_verify   : BBU RAM - Verify
-bram_writew   : BBU RAM 16 bit write test
-bram_readw   : BBU RAM 16 bit read/verify test
-
-cmd:> bram_writew 0xaa55
-BBU RAM 16 bit write test.
-bram_writew PASS
-
-cmd:> q
-Quit bburam test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : nandflash
-device: nandflash test case
-
-Available commands
-------------------
-help              : Display list of commands
-h                 : alias for help
-?                 : alias for help
-nand_mem_mode_set : mem mode select
-nand_onfi_dump    : param page dump
-nand_read_status  : execute ReadStatus or ReadEnhStatus op [1/2]
-set_timing_md_feat: set timing mode feature [0..5]
-nand_probe        : nand probe test
-nand_erase        : nand erase block test
-nand_erase_or_mark: nand erase or mark as bb block
-nand_write        : nand write/read test
-nand_1wmr         : nand write 1 and read more test
-nand_read         : nand read test
-nand_ecc          : nand ecc support test
-nand_int          : nand interrupt test
-nand_erase_all_or_mark    : nand erase all or mark as bb block(s)
-nand_erase_all    : nand erase all blocks test
-nand_scan_bbt     : scan bbt
-nand_scan_bbt_range	  : scan bbt in block range
-nand_check_partitions	  : check whole chip for allowed bb# in each partition
-nand_mark_bb      : mark bad block
-nand_check_bb	  : check block's status
-nand_write_bbt    : write bbt to flash
-nand_read_bbt     : read bbt from flash
-q                 : quit nand test
-
-cmd:> nand_scan_bbt 0 MT29F4G16ABBDA3W
- ffb,BBTotal: 1,nand_scan_bbt,1
-
-cmd:> q
-Quit nandflash test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : gpio
-device: gpio test case
-
-Available commands
-------------------
-help           : Display list of commands
-h              : alias for help
-?              : alias for help
-gpio_output    : gpio output test
-gpio_input     : gpio input test
-gpio_int_type  : gpio interrupt type test
-gpio_debounce  : gpio debounce test
-gpio_output_pu : gpio output push pull, open drain test
-gpio_input_pu  : gpio input push pull test
-gpio_loopback  : gpio_loopback_test
-gpio_zero_walk : gpio_walking_zeros_test
-
-cmd:> gpio_loopback
-GPIOA_04_TO_GPIOA_09,0
-gpio_loopback,0
-
-cmd:> q
-Quit gpio test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : uart3
-device: uart3 test case
-
-Available commands
-------------------
-help : Display list of commands
-h: alias for help
-?: alias for help
-uart_loopback: uart loopback tx/rx test
-uart_external_loopback: uart external loopback tx/rx test
-uart_modem_loopback: uart loopback modem ctrl test
-uart_transfer: uart dma mode,baudrate,parity,data bits,stop bits test
-uart_flowctrl: uart rs232 tx/rx with flowctrl test
-uart_echo: uart echo server in background
-uart_modem  : uart modem ctrl detect test
-uart_modem_master: uart modem ctrl control test
-uart_line  : uart line break detect test in background
-uart_line_master:uart line break generate test
-uart_int  : uart interrupt test
-uart_dma_block_echo  : uart dma multiblock with interrupt test
-uart_dma_block  : uart dma multiblock with interrupt test
-uart_reset  : uart sw reset test
-uart_cfg: uart port configure
-uart_send  : debug send
-uart_recv  : debug receive
-uart_cleanup  : stop dma, disable dma irq & uart irq, unregister irq handlers
-console_switch  : switch current console to other uart port
-uart_reg_dump  : dump reg
-4_uart_show : four uart puts char out
-q : quit uart test
-
-cmd:> uart_external_loopback 0 115200 n 8 1 0 100 0xa5
-UART_EX_LOOPBACK_RESULT,0
-
-cmd:> q
-Quit uart3 test
-src/main.c:489: mem_stat -- malloc: 0, memalign: 260, calloc: 10, realloc: 0, free: 260, mem_leak: 40000
-
-
-VERSION: 1.1.10
-ARM CDL V2018.07.03 ITRON LGA: Jul  3 2018
-Columbus FVT test,please select device first
-0: timer  
-1: watch dog timer  
-2: rtc  
-3: dmac0  
-4: dmac1  
-5: dmac2  
-6: gpio  
-7: uart0  
-8: uart1  
-9: uart2  
-10: uart3  
-11: i2c0  
-12: i2c1  
-13: i2c2  
-14: spi0(qspi)  
-15: spi1  
-16: spi2  
-17: mmc/sdio 0  
-18: mmc/sdio 1  
-19: nandflash  
-20: usb0  
-21: usb1  
-22: otp  
-23: crc  
-24: adc  
-25: ecc  
-26: dwc_trng  
-27: aes  
-28: sha  
-29: ipc  
-30: epf  
-31: tamper  
-32: bburam  
-33: api  
-34: pll  
-35: ddr  
-36: sys  
-37: system  
-38: ipm2  
-39: lpddr  
-40: spi_sf  
-41: FVT_USB  
-
-Select the device to test : gpio
-device: gpio test case
-
-Available commands
-------------------
-help           : Display list of commands
-h              : alias for help
-?              : alias for help
-gpio_output    : gpio output test
-gpio_input     : gpio input test
-gpio_int_type  : gpio interrupt type test
-gpio_debounce  : gpio debounce test
-gpio_output_pu : gpio output push pull, open drain test
-gpio_input_pu  : gpio input push pull test
-gpio_loopback  : gpio_loopback_test
-gpio_zero_walk : gpio_walking_zeros_test
-
-cmd:> gpio_loopback
-gpio_loopback,1
-
-cmd:> 
+Clock regs: arm_pll/arm_clk/ddr_pll 80001643/61d25c5/80001c89
+PLL rate: ARM 600000000 from root_xtal_36mhz, DDR 400000000
+arm_clk_rate: 600000000 from arm_pll
+a

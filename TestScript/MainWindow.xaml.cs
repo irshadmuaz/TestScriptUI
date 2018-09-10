@@ -18,6 +18,11 @@ using System.Threading;
 using Excel = Microsoft.Office.Interop.Excel;
 using Hardcodet.Wpf.TaskbarNotification;
 using System.IO;
+using ToastNotifications;
+using ToastNotifications.Lifetime;
+using ToastNotifications.Position;
+using ToastNotifications.Messages;
+using DataAccess;
 
 namespace TestScript
 {
@@ -36,14 +41,31 @@ namespace TestScript
         
         DisplayOutput _output;
         string received = "";
-        Dictionary<string, string> dict_lga,dict,dict_c2,passed;
+        Dictionary<string, string> dict_lga,dict,dict_c2,lga_passed,c2_passed,passed;
+        
         string passphrase = "lols";
         Button active;
         private SerialPort port;
         StreamWriter writer;
+        Notifier notifier;
         public MainWindow()
         {
-            
+           
+            notifier = new Notifier(cfg =>
+            {
+            cfg.PositionProvider = new WindowPositionProvider(
+                parentWindow: Application.Current.MainWindow,
+                corner: Corner.BottomCenter,
+                    offsetX: 10,
+                    offsetY: 10);
+
+                cfg.LifetimeSupervisor = new TimeAndCountBasedLifetimeSupervisor(
+                    notificationLifetime: TimeSpan.FromSeconds(3),
+                    maximumNotificationCount: MaximumNotificationCount.FromCount(5));
+
+                cfg.Dispatcher = Application.Current.Dispatcher;
+            });
+            passed = lga_passed;
             if (!Directory.Exists("\\LOG"))
             {
                 System.IO.Directory.CreateDirectory("LOG");
@@ -162,10 +184,11 @@ namespace TestScript
             //WriteExcel(dict_lga, "ACT_LGA_Commands.xlsx");
             dict = dict_lga;
             InitializeComponent();
-
+            
             portbox.ItemsSource = SerialPort.GetPortNames();
             output.ScrollToVerticalOffset(500);
             _output = (DisplayOutput)base.DataContext;
+            onload();
         }
         
         private void WriteExcel(Dictionary<string,string> dict,string filename,int col=2)
@@ -225,6 +248,23 @@ namespace TestScript
             }
             xlWorkbook.Close();
             xlApp.Quit();
+            return dictionary;
+        }
+        private Dictionary<string, string> ReadCSV(string filename, Dictionary<string, string> dictionary, int col = 2)
+        {
+
+            if (!System.IO.File.Exists(filename))
+            {
+                return dictionary;
+            }
+            DataTable dt = DataTable.New.ReadCsv(filename);
+
+            // Query via the DataTable.Rows enumeration.
+            foreach (Row row in dt.Rows)
+            {
+                dictionary[row.Values[0]] = row.Values[col];
+            }
+
             return dictionary;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -352,43 +392,22 @@ namespace TestScript
         {
             portbox.ItemsSource = SerialPort.GetPortNames();
         }
-
-        private void log_Checked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void load_Click(object sender, RoutedEventArgs e)
-        {
-            
-            try
-            {
-                dict_lga = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.xlsx", dict_lga);
-                dict_c2 = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.xlsx", dict_c2);
-                //MessageBox.Show("Command files successfully loaded\n" + System.IO.Directory.GetCurrentDirectory() + 
-                //    "\\ACT_LGA_Commands.xlsx\n"+ System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.xlsx");
-                MessageBox.Show("Successfully loaded");
-            }
-            catch
-            {
-                MessageBox.Show("Command file not loaded, using default instructions");
-            }
-            
-        }
-
+        
         private void savelog_clock(object sender, RoutedEventArgs e)
         {
-            if(filename.Text.Length > 0)
+            
+            if (filename.Text.Length > 0)
             {
                 try
                 {
                     writer.Close();
+                    var name = "LOG\\" + filename.Text + "_" + DateTime.Now.ToLongDateString() + ".log";
                     writer = new StreamWriter("LOG\\" + filename.Text+"_" + DateTime.Now.ToLongDateString() + ".log");
-                    MessageBox.Show("filename changed!");
+                    notifier.ShowSuccess("Log file updated");
                 }
                 catch
                 {
-                    
+                    notifier.ShowError("Something went wrong");
                 }
                 
             }
@@ -402,16 +421,34 @@ namespace TestScript
 
         private void loadlga_click(object sender, RoutedEventArgs e)
         {
-            dict_lga = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.xlsx", dict_lga,2);
-            passed = new Dictionary<string, string>();
-            passed = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.xlsx", passed, 3);
-            MessageBox.Show("ACT LGA Configuration loaded");
+            try
+            {
+                dict_lga = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.csv", dict_lga, 1);
+                lga_passed = new Dictionary<string, string>();
+                lga_passed = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.csv", lga_passed, 2);
+                passed = lga_passed;
+                notifier.ShowSuccess("LGA Configuration loaded");
+            }
+            catch
+            {
+                notifier.ShowError("Something went wrong");
+            }
+            
         }
 
         private void loadc2_click(object sender, RoutedEventArgs e)
         {
-            dict_c2 = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.xlsx", dict_c2);
-            MessageBox.Show("C2+ Configuration loaded");
+            try
+            {
+                dict_c2 = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.xlsx", dict_c2);
+                c2_passed = new Dictionary<string, string>();
+                c2_passed = ReadExcel(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.xlsx", c2_passed, 3);
+                notifier.ShowSuccess("C2+ Configuration loaded");
+            }
+            catch
+            {
+                notifier.ShowError("Something went wrong");
+            }
         }
 
         private void Core_Checked(object sender, RoutedEventArgs e)
@@ -419,6 +456,7 @@ namespace TestScript
             if ((bool)Core.IsChecked)
             {
                 dict = dict_lga;
+                passed = lga_passed;
             }
         }
 
@@ -428,6 +466,33 @@ namespace TestScript
             if ((bool)Core2.IsChecked)
             {
                 dict = dict_c2;
+                passed = c2_passed;
+            }
+        }
+        private void onload()
+        {
+            try
+            {
+                dict_lga = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.csv", dict_lga, 1);
+                lga_passed = new Dictionary<string, string>();
+                lga_passed = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\ACT_LGA_Commands.csv", lga_passed, 2);
+                passed = lga_passed;
+                
+            }
+            catch
+            {
+                MessageBox.Show("error lga");
+            }
+            try
+            {
+                dict_c2 = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.csv", dict_c2,1);
+                c2_passed = new Dictionary<string, string>();
+                c2_passed = ReadCSV(System.IO.Directory.GetCurrentDirectory() + "\\C2+_Commands.csv", c2_passed, 2);
+                
+            }
+            catch
+            {
+                MessageBox.Show("error c2");
             }
         }
     }

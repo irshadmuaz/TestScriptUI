@@ -7,18 +7,18 @@
         xmlns:ac="clr-namespace:Yuhan.WPF.Controls;assembly=Yuhan.WPF.AdornedControl"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="MainWindow" Height="608.668" Width="979.666" Background="White">
+        Title="MainWindow" Height="608.668" Width="979.666" Background="#FFEDECEC">
     <Window.DataContext>
         <local:DisplayOutput/>
     </Window.DataContext>
-    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Background="#FFEDECEC">
         <Grid x:Name="mainApp">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition  Width="*" MinWidth="300" />
                 <!--<ColumnDefinition MinWidth="387.5" Width="*"/>-->
                 <!--<ColumnDefinition Width="54*" MinWidth="400"/>-->
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="500"/>
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -50,8 +50,8 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label FontSize="14" Content="Load configuration:"/>
-                    <Button x:Name="load_lga" Content="ACT LGA" Margin="5,0,10,0" Padding="5" Click="loadlga_click"/>
-                    <Button x:Name="load_c2" Content="C2+" RenderTransformOrigin="1.551,0.465" Padding="5" Click="loadc2_click"/>
+                    <Button x:Name="load_lga" Content="ACT LGA" Margin="5,0,10,0" Padding="5" Click="loadlga_click" Width="66.414"/>
+                    <Button x:Name="load_c2" Content="C2+" RenderTransformOrigin="1.551,0.465" Padding="5" Click="loadc2_click" Width="66.11"/>
 
                 </StackPanel>
             </StackPanel>
@@ -64,7 +64,7 @@
                         <StackPanel Grid.Column="1" Grid.Row="1" MinHeight="388" Margin="0,0,1,0" x:Name="s1">
 
                             <Border BorderBrush="Black" BorderThickness="1" Height="1" Margin="0,0,-0.333,0"/>
-                            <DockPanel Margin="5" LastChildFill="True" Background="White">
+                            <DockPanel Margin="5" LastChildFill="True" Background="#FFAD9292">
                                 <TextBlock Text="FVT TESTS" HorizontalAlignment="Center" FontFamily="Gill Sans MT" FontWeight="Bold" FontStyle="Italic"/>
                             </DockPanel>
                             <DockPanel Margin="5" Background="#FFEBF2EA" >
@@ -135,6 +135,24 @@
                                 <Label Content="SDIO"/>
                                 <Button x:Name="sdio0" Content="Autotest 0" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
                                 <Button x:Name="sdio1" Content="Autotest 1" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="Tamper"/>
+                                <Button x:Name="tamper_setup" Content="Tamper setup" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Button x:Name="tamper_rd" Content="Tamper Read" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Label Content=""/>
+                            </DockPanel>
+                            <DockPanel Margin="5" Background="#FFEBF2EA" >
+                                <Label Content="RTC"/>
+                                <Button x:Name="set_time" Content="SetTime" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5"/>
+                                <Button x:Name="get_time12" Content="GetTime 12H" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="get_time24" Content="GetTime 24H" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="rtc_param" Content="RTC params" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="set_trim" Content="SetTrim" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="fvt_param" Content="FVT params" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="rtc_cal_write" Content="RTC write" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
+                                <Button x:Name="rtc_cal_read" Content="RTC read" DockPanel.Dock="Right" MinWidth="50" Background="#FFC4E59C" Click="cmd_Click" Padding="5" />
                                 <Label Content=""/>
                             </DockPanel>
                             <DockPanel Margin="5" Background="#FFEBF2EA" >
