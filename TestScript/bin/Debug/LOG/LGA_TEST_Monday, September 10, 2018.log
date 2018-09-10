@@ -3921,4 +3921,440 @@ ARM CDL VSep  7 2018 09:46:56...with hskp_0 in initial(EVB)
 Clock regs: arm_pll/arm_clk/ddr_pll 80001643/61d25c5/80001c89
 PLL rate: ARM 600000000 from root_xtal_36mhz, DDR 400000000
 arm_clk_rate: 600000000 from arm_pll
-a
+axi_clk_rate: 300000000
+ahb_clk_rate: 150000000
+apb0_clk_rate: 150000000
+apb1_clk_rate: 75000000
+rom_clk_rate: 150000000
+sdmmc_clk_rate: 100000000
+nfc_clk_rate: 200000000
+uart_clk_rate: 58895680
+wdt actual frequency: 37500000, pclk 75000000 divh 2 divl 1
+misc_var_init
+prcm_var_init
+ARM_UART_I2C_DS_REG:0xf
+ARM_UART_I2C_DS_REG:0xff
+ARM_UART_I2C_DS_REG:0xfff
+ARM_UART_I2C_DS_REG:0xfffff
+ARM_UART_I2C_DS_REG:0x3fffff
+ARM_UART_I2C_DS_REG:0xffffff
+ARM_UART_I2C_DS_REG:0x3ffffff
+using memory 0x44185300-0x47985300 for malloc()
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : q
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : adc
+device: adc test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+adc_sm  : adc single mode multi-channel test
+adc_cm  : adc continuous mode mult-chanel test
+adc_int  : adc interrupt test
+adc_sm_auto_test  : adc single mode auto test
+adc_cm_auto_test  : adc single mode auto test
+arm_adc_autotest: adc FVT test
+
+cmd:> arm_adc_autotest 0
+MIN  CUR  MAX
+3694 0000 4072
+3694 2820 4072
+3694 1680 4072
+arm_adc_autotest,0,0
+
+cmd:> q
+Quit adc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : adc
+device: adc test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+adc_sm  : adc single mode multi-channel test
+adc_cm  : adc continuous mode mult-chanel test
+adc_int  : adc interrupt test
+adc_sm_auto_test  : adc single mode auto test
+adc_cm_auto_test  : adc single mode auto test
+arm_adc_autotest: adc FVT test
+
+cmd:> arm_adc_autotest 1
+MIN  CUR  MAX
+2659 0000 2932
+2659 3927 2932
+2659 1683 2932
+arm_adc_autotest,0,1
+
+cmd:> q
+Quit adc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : adc
+device: adc test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+adc_sm  : adc single mode multi-channel test
+adc_cm  : adc continuous mode mult-chanel test
+adc_int  : adc interrupt test
+adc_sm_auto_test  : adc single mode auto test
+adc_cm_auto_test  : adc single mode auto test
+arm_adc_autotest: adc FVT test
+
+cmd:> arm_adc_autotest 2
+MIN  CUR  MAX
+1625 0000 1791
+1625 3928 1791
+1625 2821 1791
+arm_adc_autotest,0,2
+
+cmd:> q
+Quit adc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : adc
+device: adc test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+adc_sm  : adc single mode multi-channel test
+adc_cm  : adc continuous mode mult-chanel test
+adc_int  : adc interrupt test
+adc_sm_auto_test  : adc single mode auto test
+adc_cm_auto_test  : adc single mode auto test
+arm_adc_autotest: adc FVT test
+
+cmd:> arm_adc_autotest 3
+MIN  CUR  MAX
+arm_adc_autotest,1,3,0000,3944,2821,1682
+
+cmd:> q
+Quit adc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog timer  
+2: rtc  
+3: dmac0  
+4: dmac1  
+5: dmac2  
+6: gpio  
+7: uart0  
+8: uart1  
+9: uart2  
+10: uart3  
+11: i2c0  
+12: i2c1  
+13: i2c2  
+14: spi0(qspi)  
+15: spi1  
+16: spi2  
+17: mmc/sdio 0  
+18: mmc/sdio 1  
+19: nandflash  
+20: usb0  
+21: usb1  
+22: otp  
+23: crc  
+24: adc  
+25: ecc  
+26: dwc_trng  
+27: aes  
+28: sha  
+29: ipc  
+30: epf  
+31: tamper  
+32: bburam  
+33: api  
+34: pll  
+35: ddr  
+36: sys  
+37: system  
+38: ipm2  
+39: lpddr  
+40: spi_sf  
+41: FVT_USB  
+
+Select the device to test : adc
+device: adc test case
+
+Available commands
+------------------
+help : Display list of commands
+h    : alias for help
+?    : alias for help
+adc_sm  : adc single mode multi-channel test
+adc_cm  : adc continuous mode mult-chanel test
+adc_int  : adc interrupt test
+adc_sm_auto_test  : adc single mode auto test
+adc_cm_auto_test  : adc single mode auto test
+arm_adc_autotest: adc FVT test
+
+cmd:> arm_adc_autotest 4
+MIN  CUR  MAX
+1625 0000 1791
+0000 3927 0040
+3694 2820 4072
+2659 1680 2932
+arm_adc_autotest,0,4
+
+cmd:> q
+Quit adc test
+src/main.c:506: mem_stat -- malloc: 0, memalign: 0, calloc: 0, realloc: 0, free: 0, mem_leak: 0
+
+
+VERSION: 1.1.11
+ARM CDL V2018.09.07 ITRON LGA: Sep  7 2018
+Columbus FVT test,please select device first
+0: timer  
+1: watch dog ti
